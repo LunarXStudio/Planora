@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planora — Design a better month.</title>
+  <meta name="description" content="Planora is a digital publishing studio designing premium planners, trackers and printable books for a calmer, better-kept life.">
+
+  <!-- Google Fonts: Fraunces (display serif) + Inter (body/UI). Falls back to system fonts if offline. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER / STICKY NAV ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-wrap">
+      <a href="#hero" class="logo" data-scroll>Planora</a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#categories" data-scroll>Categories</a>
+        <a href="#bestsellers" data-scroll>Shop</a>
+        <a href="#why" data-scroll>Why Planora</a>
+        <a href="#reviews" data-scroll>Reviews</a>
+        <a href="#newsletter" data-scroll>Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="View cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="10" cy="20.5" r="1.1"/>
+            <circle cx="17" cy="20.5" r="1.1"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <div class="hero-copy reveal">
+          <h1 class="hero-title">Design a<br>better month.</h1>
+          <p class="hero-subtitle">
+            Premium digital planners, trackers and printable books —
+            crafted to bring a little more calm and structure to
+            everyday life. Download instantly. Print anytime.
+          </p>
+          <div class="hero-actions">
+            <a href="#bestsellers" class="btn btn-primary" data-scroll>Shop collection</a>
+            <a href="#categories" class="btn btn-secondary" data-scroll>Explore products</a>
+          </div>
+        </div>
+
+        <!-- Hero visual: a built, not photographed, planner mockup -->
+        <div class="hero-visual reveal">
+          <div class="mock-card mock-calendar" aria-hidden="true">
+            <div class="mock-card-head">
+              <span>September</span>
+              <span class="mock-dot"></span>
+            </div>
+            <div class="mock-grid">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              <span class="filled"></span><span></span><span class="filled soft"></span><span></span><span></span><span class="filled"></span><span></span>
+              <span></span><span class="filled soft"></span><span></span><span></span><span class="filled"></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="mock-card mock-checklist" aria-hidden="true">
+            <div class="mock-card-head">
+              <span>Habits</span>
+            </div>
+            <ul class="mock-list">
+              <li><span class="mock-check checked"></span>Morning walk</li>
+              <li><span class="mock-check checked"></span>Drink water</li>
+              <li><span class="mock-check"></span>Read 20 min</li>
+              <li><span class="mock-check"></span>Lights out by 11</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURED CATEGORIES ============ -->
+    <section class="categories" id="categories">
+      <div class="section-head reveal">
+        <h2>Find your kind of order.</h2>
+        <p>Six ways to bring a little more structure to your days.</p>
+      </div>
+
+      <div class="category-grid">
+
+        <article class="category-card reveal">
+          <div class="category-image" style="--tint:#EFE7D8;">
+            <span class="placeholder-label">Image placeholder<br>Weekly Planner</span>
+          </div>
+          <h3>Weekly Planner</h3>
+          <p>A clean seven-day layout to plan tasks, meals and time.</p>
+        </article>
+
+        <article class="category-card reveal">
+          <div class="category-image" style="--tint:#E7E0D2;">
+            <span class="placeholder-label">Image placeholder<br>Workout Planner</span>
+          </div>
+          <h3>Workout Planner</h3>
+          <p>Track sets, streaks and progress without the clutter.</p>
+        </article>
+
+        <article class="category-card reveal">
+          <div class="category-image" style="--tint:#EAE2D3;">
+            <span class="placeholder-label">Image placeholder<br>Monthly Cookbook</span>
+          </div>
+          <h3>Monthly Cookbook</h3>
+          <p>Seasonal recipes and a menu planner, refreshed monthly.</p>
+        </article>
+
+        <article class="category-card reveal">
+          <div class="category-image" style="--tint:#F1EADC;">
+            <span class="placeholder-label">Image placeholder<br>Coloring Book</span>
+          </div>
+          <h3>Coloring Book</h3>
+          <p>Quiet, hand-drawn pages for slow, screen-free evenings.</p>
+        </article>
+
+        <article class="category-card reveal">
+          <div class="category-image" style="--tint:#E6DECE;">
+            <span class="placeholder-label">Image placeholder<br>Habit Tracker</span>
+          </div>
+          <h3>Habit Tracker</h3>
+          <p>Simple grids that make consistency easy to see.</p>
+        </article>
+
+        <article class="category-card reveal">
+          <div class="category-image" style="--tint:#ECE4D6;">
+            <span class="placeholder-label">Image placeholder<br>Budget Planner</span>
+          </div>
+          <h3>Budget Planner</h3>
+          <p>Give every rupee a plan, month after month.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ BEST SELLERS ============ -->
+    <section class="bestsellers" id="bestsellers">
+      <div class="section-head reveal">
+        <h2>Best sellers.</h2>
+        <p>The six products people come back for.</p>
+      </div>
+
+      <div class="product-grid">
+
+        <article class="product-card reveal" data-product="The Weekly Planner" data-price="₹299">
+          <div class="product-image">
+            <span class="placeholder-label">Image placeholder<br>The Weekly Planner</span>
+          </div>
+          <div class="product-body">
+            <h3>The Weekly Planner</h3>
+            <p>52 weeks of clean, printable layouts for tasks and time.</p>
+            <div class="product-foot">
+              <span class="price">₹299</span>
+              <button class="btn btn-buy" data-buy>Buy now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card reveal" data-product="The Monthly Planner" data-price="₹349">
+          <div class="product-image">
+            <span class="placeholder-label">Image placeholder<br>The Monthly Planner</span>
+          </div>
+          <div class="product-body">
+            <h3>The Monthly Planner</h3>
+            <p>A full year of monthly spreads to see the bigger picture.</p>
+            <div class="product-foot">
+              <span class="price">₹349</span>
+              <button class="btn btn-buy" data-buy>Buy now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card reveal" data-product="The Workout Planner" data-price="₹249">
+          <div class="product-image">
+            <span class="placeholder-label">Image placeholder<br>The Workout Planner</span>
+          </div>
+          <div class="product-body">
+            <h3>The Workout Planner</h3>
+            <p>Log sessions, sets and streaks in one calm layout.</p>
+            <div class="product-foot">
+              <span class="price">₹249</span>
+              <button class="btn btn-buy" data-buy>Buy now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card reveal" data-product="The Habit Tracker" data-price="₹199">
+          <div class="product-image">
+            <span class="placeholder-label">Image placeholder<br>The Habit Tracker</span>
+          </div>
+          <div class="product-body">
+            <h3>The Habit Tracker</h3>
+            <p>A year of simple grids for the habits that matter.</p>
+            <div class="product-foot">
+              <span class="price">₹199</span>
+              <button class="btn btn-buy" data-buy>Buy now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card reveal" data-product="The Budget Planner" data-price="₹279">
+          <div class="product-image">
+            <span class="placeholder-label">Image placeholder<br>The Budget Planner</span>
+          </div>
+          <div class="product-body">
+            <h3>The Budget Planner</h3>
+            <p>Income, expenses and savings, tracked with clarity.</p>
+            <div class="product-foot">
+              <span class="price">₹279</span>
+              <button class="btn btn-buy" data-buy>Buy now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card reveal" data-product="The Printable Journal" data-price="₹229">
+          <div class="product-image">
+            <span class="placeholder-label">Image placeholder<br>The Printable Journal</span>
+          </div>
+          <div class="product-body">
+            <h3>The Printable Journal</h3>
+            <p>Undated pages for daily reflection, whenever you begin.</p>
+            <div class="product-foot">
+              <span class="price">₹229</span>
+              <button class="btn btn-buy" data-buy>Buy now</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ WHY PLANORA ============ -->
+    <section class="why" id="why">
+      <div class="section-head reveal">
+        <h2>Why Planora.</h2>
+        <p>Made once, downloaded instantly, used for as long as you like.</p>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-item reveal">
+          <span class="why-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M12 3v12" stroke-linecap="round"/>
+              <path d="M7 10l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 19h16" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <h3>Instant download</h3>
+          <p>Your files are ready the moment you check out — no waiting, no shipping.</p>
+        </div>
+
+        <div class="why-item reveal">
+          <span class="why-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M6 9V4h12v5" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="4" y="9" width="16" height="8" rx="1.5"/>
+              <rect x="7" y="14" width="10" height="7" rx="0.5"/>
+            </svg>
+          </span>
+          <h3>Print anytime</h3>
+          <p>At home, at a copy shop, or bound at a print studio — the choice is yours.</p>
+        </div>
+
+        <div class="why-item reveal">
+          <span class="why-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3" stroke-linecap="round"/>
+              <path d="M18 3v4h-4M6 21v-4h4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h3>Reuse forever</h3>
+          <p>One purchase, unlimited prints. Refill your planner as many times as you need.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="testimonials" id="reviews">
+      <div class="section-head reveal">
+        <h2>Loved by planners.</h2>
+        <p>A few words from people who print with Planora.</p>
+      </div>
+
+      <div class="testimonial-grid">
+
+        <blockquote class="testimonial-card reveal">
+          <p>“The weekly planner is the first system I've actually stuck with. It doesn't feel like an app — it feels like mine.”</p>
+          <footer><span class="t-name">Aditi R.</span><span class="t-role">Bengaluru</span></footer>
+        </blockquote>
+
+        <blockquote class="testimonial-card reveal">
+          <p>“Beautifully designed and genuinely useful. I print a fresh habit tracker every month and it never feels repetitive.”</p>
+          <footer><span class="t-name">Karan M.</span><span class="t-role">Mumbai</span></footer>
+        </blockquote>
+
+        <blockquote class="testimonial-card reveal">
+          <p>“The cookbook alone was worth it. Simple layouts, lovely typography, and recipes I actually cook.”</p>
+          <footer><span class="t-name">Sneha P.</span><span class="t-role">Chennai</span></footer>
+        </blockquote>
+
+      </div>
+    </section>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="newsletter" id="newsletter">
+      <div class="newsletter-inner reveal">
+        <h2>Stay ahead of the month.</h2>
+        <p>New planners and seasonal collections, sent occasionally — never spam.</p>
+
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <input
+            type="email"
+            id="newsletterEmail"
+            class="newsletter-input"
+            placeholder="you@example.com"
+            aria-label="Email address"
+            required>
+          <button type="submit" class="btn btn-primary">Join</button>
+        </form>
+        <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">Planora</p>
+        <p class="footer-tagline">Digital planners and printable books for a well-kept life.</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="#bestsellers" data-scroll>Best sellers</a></li>
+            <li><a href="#categories" data-scroll>Categories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#why" data-scroll>About</a></li>
+            <li><a href="#newsletter" data-scroll>Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Planora. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Toast for cart feedback -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
