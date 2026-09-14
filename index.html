@@ -383,7 +383,29 @@
 
   <!-- Toast for cart feedback -->
   <div class="toast" id="toast"></div>
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
 
+<aside class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button id="closeCart">✕</button>
+  </div>
+
+  <div id="cartItems" class="cart-items">
+    <p class="empty-cart">Your cart is empty.</p>
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="cartTotal">₹0</strong>
+    </div>
+    <button class="btn btn-primary" style="width:100%">
+      Checkout
+    </button>
+  </div>
+</aside>
   <script src="script.js"></script>
 </body>
 </html>
