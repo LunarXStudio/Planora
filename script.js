@@ -1,168 +1,149 @@
-/* =========================================================
-   PLANORA — script.js
-   Vanilla JS only. No dependencies.
-   Handles: sticky header shadow, mobile menu, smooth scroll,
-   scroll-reveal animations, newsletter validation,
-   and a front-end-only fake cart counter.
-   ========================================================= */
+// ===== MOBILE MENU =====
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
-document.addEventListener('DOMContentLoaded', function () {
+if(menuToggle){
+  menuToggle.onclick = () =>{
+    menuToggle.classList.toggle("open");
+    navLinks.classList.toggle("open");
+  };
+}
 
-  /* ---------- 1. Sticky header shadow on scroll ---------- */
-  var header = document.getElementById('siteHeader');
-  function updateHeaderShadow() {
-    if (window.scrollY > 8) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  }
-  updateHeaderShadow();
-  window.addEventListener('scroll', updateHeaderShadow, { passive: true });
-
-  /* ---------- 2. Mobile hamburger menu ---------- */
-  var menuToggle = document.getElementById('menuToggle');
-  var navLinks = document.getElementById('navLinks');
-
-  function closeMenu() {
-    navLinks.classList.remove('open');
-    menuToggle.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  }
-
-  function toggleMenu() {
-    var isOpen = navLinks.classList.toggle('open');
-    menuToggle.classList.toggle('open', isOpen);
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  menuToggle.addEventListener('click', toggleMenu);
-
-  /* Close the mobile menu after a nav link is used */
-  navLinks.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', closeMenu);
-  });
-
-  /* ---------- 3. Smooth scrolling navigation ---------- */
-  var headerHeight = header.offsetHeight;
-
-  document.querySelectorAll('a[data-scroll]').forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      var targetId = link.getAttribute('href');
-      if (!targetId || targetId.charAt(0) !== '#') return;
-
-      var target = document.querySelector(targetId);
-      if (!target) return;
-
-      e.preventDefault();
-
-      var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - (headerHeight - 8);
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-
-      /* Keep the URL hash in sync without an extra jump */
-      history.pushState(null, '', targetId);
-    });
-  });
-
-  /* ---------- 4. Scroll reveal animations ---------- */
-  var revealEls = document.querySelectorAll('.reveal');
-
-  if ('IntersectionObserver' in window) {
-    var revealObserver = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    revealEls.forEach(function (el) {
-      revealObserver.observe(el);
-    });
-  } else {
-    /* Fallback: no IntersectionObserver support — just show everything */
-    revealEls.forEach(function (el) {
-      el.classList.add('in-view');
-    });
-  }
-
-  /* ---------- 5. Newsletter form validation ---------- */
-  var form = document.getElementById('newsletterForm');
-  var emailInput = document.getElementById('newsletterEmail');
-  var formMessage = document.getElementById('formMessage');
-
-  function isValidEmail(value) {
-    /* Simple, practical email pattern — not exhaustive RFC 5322 */
-    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return pattern.test(value);
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var value = emailInput.value.trim();
-
-    if (value === '') {
-      showFormMessage('Please enter your email address.', true);
-      emailInput.focus();
-      return;
-    }
-
-    if (!isValidEmail(value)) {
-      showFormMessage('That email address doesn\u2019t look right. Please check it.', true);
-      emailInput.focus();
-      return;
-    }
-
-    /* Front-end only: no server call, just confirm success */
-    showFormMessage('You\u2019re on the list. Welcome to Planora.', false);
-    form.reset();
-  });
-
-  function showFormMessage(text, isError) {
-    formMessage.textContent = text;
-    formMessage.classList.toggle('error', isError);
-  }
-
-  /* ---------- 6. Fake shopping cart counter ---------- */
-  var cartCount = document.getElementById('cartCount');
-  var toast = document.getElementById('toast');
-  var count = 0;
-  var toastTimer = null;
-
-  document.querySelectorAll('[data-buy]').forEach(function (button) {
-    button.addEventListener('click', function () {
-      var card = button.closest('[data-product]');
-      var name = card ? card.getAttribute('data-product') : 'Item';
-
-      count += 1;
-      cartCount.textContent = String(count);
-
-      /* Little bump animation on the counter */
-      cartCount.classList.remove('bump');
-      /* Force reflow so the animation can restart */
-      void cartCount.offsetWidth;
-      cartCount.classList.add('bump');
-
-      showToast('Added to cart — ' + name);
-    });
-  });
-
-  function showToast(message) {
-    toast.textContent = message;
-    toast.classList.add('show');
-
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () {
-      toast.classList.remove('show');
-    }, 2400);
-  }
-
+// ===== STICKY HEADER =====
+const header=document.getElementById("siteHeader");
+window.addEventListener("scroll",()=>{
+  header.classList.toggle("scrolled",window.scrollY>20);
 });
+
+// ===== SCROLL REVEAL =====
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("in-view");
+    }
+  });
+},{threshold:.15});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+// ===== NEWSLETTER =====
+const form=document.getElementById("newsletterForm");
+const email=document.getElementById("newsletterEmail");
+const msg=document.getElementById("formMessage");
+
+form?.addEventListener("submit",(e)=>{
+  e.preventDefault();
+  if(email.value.includes("@")){
+    msg.textContent="You're on the list ✓";
+    email.value="";
+  }else{
+    msg.textContent="Please enter a valid email.";
+  }
+});
+
+// ===== CART =====
+const cartBtn=document.getElementById("cartBtn");
+const cartPanel=document.getElementById("cartPanel");
+const cartOverlay=document.getElementById("cartOverlay");
+const closeCart=document.getElementById("closeCart");
+const cartItemsEl=document.getElementById("cartItems");
+const totalEl=document.getElementById("cartTotal");
+const countEl=document.getElementById("cartCount");
+
+let cart=JSON.parse(localStorage.getItem("planora-cart"))||[];
+
+function saveCart(){
+  localStorage.setItem("planora-cart",JSON.stringify(cart));
+}
+
+function openCart(){
+  cartPanel.classList.add("open");
+  cartOverlay.classList.add("show");
+}
+
+function closeDrawer(){
+  cartPanel.classList.remove("open");
+  cartOverlay.classList.remove("show");
+}
+
+cartBtn.onclick=openCart;
+closeCart.onclick=closeDrawer;
+cartOverlay.onclick=closeDrawer;
+
+document.querySelectorAll("[data-buy]").forEach(btn=>{
+  btn.onclick=()=>{
+    const card=btn.closest(".product-card");
+    const name=card.dataset.product;
+    const price=parseInt(card.dataset.price.replace(/[^\d]/g,""));
+
+    const existing=cart.find(i=>i.name===name);
+
+    if(existing){
+      existing.qty++;
+    }else{
+      cart.push({name,price,qty:1});
+    }
+
+    saveCart();
+    renderCart();
+    openCart();
+  };
+});
+
+function renderCart(){
+
+  if(cart.length===0){
+    cartItemsEl.innerHTML='<p class="empty-cart">Your cart is empty.</p>';
+    totalEl.textContent="₹0";
+    countEl.textContent="0";
+    return;
+  }
+
+  let total=0;
+  let count=0;
+
+  cartItemsEl.innerHTML="";
+
+  cart.forEach((item,index)=>{
+    total+=item.price*item.qty;
+    count+=item.qty;
+
+    const div=document.createElement("div");
+    div.className="cart-item";
+
+    div.innerHTML=`
+      <div class="cart-info">
+        <h4>${item.name}</h4>
+        <p>₹${item.price}</p>
+        <div class="qty">
+          <button class="minus">−</button>
+          <span>${item.qty}</span>
+          <button class="plus">+</button>
+        </div>
+      </div>
+      <strong>₹${item.price*item.qty}</strong>
+    `;
+
+    div.querySelector(".plus").onclick=()=>{
+      item.qty++;
+      saveCart();
+      renderCart();
+    };
+
+    div.querySelector(".minus").onclick=()=>{
+      item.qty--;
+      if(item.qty<=0){
+        cart.splice(index,1);
+      }
+      saveCart();
+      renderCart();
+    };
+
+    cartItemsEl.appendChild(div);
+  });
+
+  totalEl.textContent=`₹${total}`;
+  countEl.textContent=count;
+}
+
+renderCart();
