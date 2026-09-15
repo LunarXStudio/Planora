@@ -1287,3 +1287,46 @@ body.no-scroll { overflow: hidden; }
   .shop-controls { flex-direction: column; align-items: stretch; }
   .search-wrap { min-width: 0; }
 }
+
+/* ---------- Contact section ---------- */
+.contact {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-7);
+}
+
+.contact-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.contact .section-head {
+  margin-bottom: var(--space-6);
+}
+
+.contact-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+
+.contact-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: var(--space-2);
+}
+
+.contact-card p {
+  color: var(--ink-soft);
+  margin-bottom: var(--space-4);
+}
+
+.contact-card .btn {
+  margin-top: var(--space-1);
+}
+
+.contact-note {
+  color: var(--stone) !important;
+  font-size: 0.85rem;
+  margin-top: var(--space-3) !important;
+  margin-bottom: 0 !important;
+}
