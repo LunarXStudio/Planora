@@ -1345,3 +1345,11 @@ body.no-scroll { overflow: hidden; }
   color:var(--stone);
   font-size:.92rem;
 }
+
+.contact{
+  padding-top:80px;
+}
+
+.contact-note{
+  margin-top:20px;
+}
