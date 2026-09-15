@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Planora</title>
+  <meta name="description" content="The terms that govern use of the Planora website and products.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">Planora</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html#categories">Categories</a>
+        <a href="index.html#bestsellers">Shop</a>
+        <a href="index.html#why">Why Planora</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Open cart" aria-haspopup="true" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="10" cy="20.5" r="1.1"/><circle cx="17" cy="20.5" r="1.1"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-hero">
+      <h1>Terms of Service</h1>
+      <p>Last updated September 2026.</p>
+    </div>
+
+    <div class="legal-content">
+      <p class="legal-note">This is placeholder legal text for demonstration. Please replace it with terms reviewed by qualified legal counsel before going live.</p>
+
+      <h2>Using Planora</h2>
+      <p>By purchasing from or browsing this website, you agree to these terms. Planora products are sold for personal, non-commercial use unless a separate commercial license has been agreed in writing.</p>
+
+      <h2>Digital products &amp; licensing</h2>
+      <ul>
+        <li>Each purchase grants a personal-use license to download and print the product for yourself or your household.</li>
+        <li>Reselling, redistributing or sharing purchased files is not permitted.</li>
+        <li>Planora retains all intellectual property rights in its designs, layouts and artwork.</li>
+      </ul>
+
+      <h2>Pricing &amp; availability</h2>
+      <p>Prices are shown in Indian Rupees (₹) and may change without notice. We reserve the right to update, retire or add products at any time.</p>
+
+      <h2>Payments</h2>
+      <p>Payments are processed securely through Stripe. Planora does not store your full card details on its own servers.</p>
+
+      <h2>Limitation of liability</h2>
+      <p>Products are provided "as is." Planora is not liable for indirect or incidental damages arising from the use of its products.</p>
+
+      <h2>Changes to these terms</h2>
+      <p>We may update these terms from time to time. Continued use of the site after changes means you accept the updated terms.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">Planora</p>
+        <p class="footer-tagline">Digital planners and printable books for a well-kept life.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul><li><a href="index.html#bestsellers">Best sellers</a></li><li><a href="index.html#categories">Categories</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul><li><a href="index.html#why">About</a></li><li><a href="index.html#faq">FAQ</a></li><li><a href="index.html#contact">Contact</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li><li><a href="refund-policy.html">Refund Policy</a></li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Planora. All rights reserved.</p></div>
+  </footer>
+
+  <div class="drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
+    <div class="cart-drawer-head">
+      <h3>Your cart</h3>
+      <button class="drawer-close" id="cartClose" aria-label="Close cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5L5 19" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <p class="cart-empty" id="cartEmpty">Your cart is empty. Explore the collection and add something you'll love.</p>
+    <div class="cart-drawer-foot">
+      <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">₹0</span></div>
+      <a href="checkout.html" class="btn btn-primary cart-checkout-btn" id="cartCheckoutBtn">Checkout</a>
+      <p class="cart-note">Taxes and download links calculated at checkout.</p>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
