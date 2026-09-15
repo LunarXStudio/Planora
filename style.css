@@ -1323,3 +1323,25 @@ body.no-scroll { overflow: hidden; }
   .shop-controls { flex-direction: column; align-items: stretch; }
   .search-wrap { min-width: 0; }
 }
+
+
+/* CONTACT SECTION */
+.contact-inner{
+  max-width:480px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.contact-inner .section-head{
+  margin-bottom:32px;
+}
+
+.contact-email-btn{
+  display:inline-flex;
+}
+
+.contact-note{
+  margin-top:16px;
+  color:var(--stone);
+  font-size:.92rem;
+}
